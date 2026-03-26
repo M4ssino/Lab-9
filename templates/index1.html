@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Список прочитанных книг</title>
+    <script type="text/javascript" src="/static/script.js"></script>
+    <link href="static/font.css" rel="stylesheet">
+</head>
+
+<body>
+    <h1>Список прочитанных книг</h1>
+    <h3>Добавь свою книгу:</h3>
+    <form>
+        <div>
+            <label for="proj_name">Автор книги</label>
+            <input type="text" name="proj_name" id="proj_name">
+        </div>
+        <div>
+            <label for="link">Название книги</label>
+            <input type="text" name="link" id="link">
+        </div>
+        <button onClick="addProject()">Добавить</button>
+        <button onClick="clearProject()">Очистить всё</button>
+    </form>
+    <ul>
+        {% for book in books_list %}
+        <li>
+            <div style="display: flex; gap: 10px;">
+                <div>{{ book['book_author'] }}</div>
+                <div><a href="{{  book['link'] }}">{{ book['book_name'] }} </a></div>
+            </div>
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
